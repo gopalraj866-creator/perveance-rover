@@ -1,0 +1,476 @@
+{
+ "fps": 30,
+ "main": {
+  "duration": 480,
+  "scenes": [
+   {
+    "id": 1,
+    "start": 0,
+    "end": 28,
+    "title": "THE HOOK"
+   },
+   {
+    "id": 2,
+    "start": 28,
+    "end": 62,
+    "title": "THE OLD CHAMPION"
+   },
+   {
+    "id": 3,
+    "start": 62,
+    "end": 100,
+    "title": "THE CHALLENGER LANDS"
+   },
+   {
+    "id": 4,
+    "start": 100,
+    "end": 155,
+    "title": "RECORD DAY"
+   },
+   {
+    "id": 5,
+    "start": 155,
+    "end": 215,
+    "title": "THE SECRET: AUTONAV"
+   },
+   {
+    "id": 6,
+    "start": 215,
+    "end": 258,
+    "title": "BEYOND THE PLAN"
+   },
+   {
+    "id": 7,
+    "start": 258,
+    "end": 312,
+    "title": "THE ROUTE"
+   },
+   {
+    "id": 8,
+    "start": 312,
+    "end": 372,
+    "title": "THE LEADERBOARD"
+   },
+   {
+    "id": 9,
+    "start": 372,
+    "end": 425,
+    "title": "WHY IT DRIVES"
+   },
+   {
+    "id": 10,
+    "start": 425,
+    "end": 462,
+    "title": "FAR FROM DONE"
+   },
+   {
+    "id": 11,
+    "start": 462,
+    "end": 480,
+    "title": "WHAT'S NEXT"
+   }
+  ],
+  "captions": [
+   {
+    "t0": 1.0,
+    "t1": 9.0,
+    "text": "28.10 MILES",
+    "sub": "A NEW RECORD ON ANOTHER WORLD",
+    "say": "Twenty-eight point one miles. That is how far one robot has now driven on another world, and it just made history."
+   },
+   {
+    "t0": 9.5,
+    "t1": 18.0,
+    "text": "NOBODY IS STEERING",
+    "sub": "Millions of miles from the nearest driver",
+    "say": "And here's the wild part. For most of that journey, no human was steering. The rover was making its own decisions."
+   },
+   {
+    "t0": 18.5,
+    "t1": 27.5,
+    "text": "STAY TO THE END",
+    "sub": "One number will surprise you",
+    "say": "This is NASA's Perseverance rover. Stay to the end, because one number in this story will really surprise you."
+   },
+   {
+    "t0": 29.0,
+    "t1": 41.0,
+    "text": "MEET THE OLD CHAMPION",
+    "sub": "NASA's Opportunity rover  |  Mars, 2004 to 2018",
+    "say": "But first, meet the old champion. NASA's Opportunity rover began exploring Mars in two thousand four, and kept rolling until twenty eighteen."
+   },
+   {
+    "t0": 41.5,
+    "t1": 52.0,
+    "text": "28.06 MILES",
+    "sub": "45.16 km in nearly 15 years",
+    "say": "In nearly fifteen years, Opportunity drove twenty-eight point oh six miles. Forty-five point one six kilometers. For years, nobody on another world had gone farther."
+   },
+   {
+    "t0": 52.5,
+    "t1": 61.5,
+    "text": "A RECORD THAT STOOD",
+    "sub": "Until October 11, 2026",
+    "say": "That record looked untouchable. Then came a newer, tougher rover, with a very different driving style."
+   },
+   {
+    "t0": 63.0,
+    "t1": 77.0,
+    "text": "THE CHALLENGER",
+    "sub": "Perseverance  |  launched 2020  |  Jezero Crater",
+    "say": "Launched in twenty twenty, Perseverance touched down in Jezero Crater in February twenty twenty-one, a place that once held an ancient lake."
+   },
+   {
+    "t0": 79.0,
+    "t1": 92.0,
+    "text": "LANDING, FEBRUARY 2021",
+    "sub": "A rocket-powered sky crane lowers the rover on cables",
+    "say": "A rocket-powered sky crane lowered the car-sized rover to the surface on cables. Then it flew away, and the real journey began."
+   },
+   {
+    "t0": 94.0,
+    "t1": 99.5,
+    "text": "THE JOURNEY BEGINS",
+    "sub": "",
+    "say": "From that day on, every wheel turn counted."
+   },
+   {
+    "t0": 101.0,
+    "t1": 112.0,
+    "text": "SOL 2,006",
+    "sub": "October 11, 2026",
+    "say": "Then came sol two thousand and six, a Martian day, which on Earth was October eleventh, twenty twenty-six."
+   },
+   {
+    "t0": 112.5,
+    "t1": 123.0,
+    "text": "ON ITS WAY TO IDUBI",
+    "sub": "Western rim of Jezero Crater",
+    "say": "Perseverance was driving toward an area called Idubi, near the western rim of Jezero Crater, when the numbers ticked closer to Opportunity's mark."
+   },
+   {
+    "t0": 124.0,
+    "t1": 134.0,
+    "text": "28.10 MILES",
+    "sub": "45.22 km  |  passing Opportunity's 28.06 mi",
+    "say": "And then it happened. The odometer hit twenty-eight point one zero miles, forty-five point two two kilometers, eclipsing Opportunity's twenty-eight point oh six."
+   },
+   {
+    "t0": 135.0,
+    "t1": 146.0,
+    "text": "5.5 YEARS vs NEARLY 15",
+    "sub": "The same distance, almost three times faster",
+    "say": "And here's the kicker. Opportunity needed nearly fifteen years to cover that distance. Perseverance did it in just five and a half."
+   },
+   {
+    "t0": 147.0,
+    "t1": 154.5,
+    "text": "SO HOW DID IT DO IT?",
+    "sub": "",
+    "say": "So how did a rover go this far this fast? The secret is a built-in driver."
+   },
+   {
+    "t0": 156.0,
+    "t1": 168.0,
+    "text": "AUTONAV",
+    "sub": "Self-driving on Mars",
+    "say": "It's called AutoNav, a self-driving system. While rolling, the rover photographs the terrain and builds a three-D map of hazards."
+   },
+   {
+    "t0": 168.5,
+    "t1": 181.0,
+    "text": "600,000 POINTS PER GLANCE",
+    "sub": "Rocks, slopes and sand traps, all scored for danger",
+    "say": "Every glance measures about six hundred thousand points. Rocks, slopes, sand traps, all scored for danger before a single wheel turns."
+   },
+   {
+    "t0": 181.5,
+    "t1": 194.0,
+    "text": "THEN IT PICKS A PATH",
+    "sub": "Between waypoints chosen by planners on Earth",
+    "say": "Rover planners on Earth choose the waypoints. Between them, Perseverance plots its own course around every hazard it can see."
+   },
+   {
+    "t0": 194.5,
+    "t1": 206.0,
+    "text": "OVER 90% AUTONOMOUS",
+    "sub": "Opportunity's first AutoNav: about 5%",
+    "say": "More than ninety percent of Perseverance's total distance was driven with AutoNav. On Opportunity, the first Martian AutoNav handled about five percent."
+   },
+   {
+    "t0": 206.5,
+    "t1": 214.5,
+    "text": "WOULD YOU TRUST A ROBOT DRIVER?",
+    "sub": "Tell us in the comments",
+    "say": "Quick question for you. Would you trust a robot driver on a planet with no roads? Tell us in the comments."
+   },
+   {
+    "t0": 216.0,
+    "t1": 228.0,
+    "text": "THE ORIGINAL PLAN",
+    "sub": "No more than 12.4 miles",
+    "say": "Here's the surprise I promised. NASA's original mission plan called for driving no more than twelve point four miles."
+   },
+   {
+    "t0": 228.5,
+    "t1": 241.0,
+    "text": "THE REALITY: 28.1 MILES",
+    "sub": "More than 2x the plan, and still going",
+    "say": "Perseverance has blown well past that. It has driven more than twice the planned distance, and it is still going."
+   },
+   {
+    "t0": 241.5,
+    "t1": 257.0,
+    "text": "ALL SYSTEMS GO",
+    "sub": "Mobility systems fully operational",
+    "say": "Steven Lee, project manager at NASA's Jet Propulsion Laboratory, says all of the rover's mobility systems are fully operational, with favorable extended wear tests."
+   },
+   {
+    "t0": 259.0,
+    "t1": 271.0,
+    "text": "THE JOURNEY SO FAR",
+    "sub": "Landing 2021 to October 11, 2026",
+    "say": "Here's the route, from the landing site in twenty twenty-one to the record-setting drive in twenty twenty-six."
+   },
+   {
+    "t0": 271.5,
+    "t1": 285.0,
+    "text": "JEZERO CRATER",
+    "sub": "Ancient river delta  |  route is illustrative",
+    "say": "It crossed the crater floor, climbed the ancient river delta, and then headed west, up toward the rim of the crater."
+   },
+   {
+    "t0": 285.5,
+    "t1": 298.0,
+    "text": "HEADING TO IDUBI",
+    "sub": "Some of the oldest terrain ever explored",
+    "say": "Its next target, Idubi, may hold some of the oldest terrain ever explored anywhere in the solar system."
+   },
+   {
+    "t0": 298.5,
+    "t1": 311.5,
+    "text": "45 KILOMETERS OF MARS",
+    "sub": "One careful decision at a time",
+    "say": "Forty-five kilometers of Mars, one careful decision at a time."
+   },
+   {
+    "t0": 313.0,
+    "t1": 326.0,
+    "text": "THE OFF-WORLD LEADERBOARD",
+    "sub": "Farthest distance driven on another world",
+    "say": "So where does that put Perseverance on the all-time leaderboard of off-world driving?"
+   },
+   {
+    "t0": 326.5,
+    "t1": 340.0,
+    "text": "#1 PERSEVERANCE",
+    "sub": "45.22 km, ahead of Opportunity by only about 60 meters",
+    "say": "First place, Perseverance with forty-five point two two kilometers. Opportunity is right behind at forty-five point one six. A margin of only about sixty meters."
+   },
+   {
+    "t0": 340.5,
+    "t1": 354.0,
+    "text": "THE MOON IS ON THE LIST",
+    "sub": "Lunokhod 2  |  39 km  |  1973",
+    "say": "Third place belongs to the Soviet moon rover Lunokhod Two, which covered thirty-nine kilometers back in nineteen seventy-three."
+   },
+   {
+    "t0": 354.5,
+    "t1": 371.0,
+    "text": "CURIOSITY AND APOLLO 17",
+    "sub": "38.15 km  |  35.74 km",
+    "say": "Curiosity, still exploring Mars, has driven thirty-eight point one five kilometers. And the Apollo seventeen lunar rover, driven by astronauts, covered thirty-five point seven four."
+   },
+   {
+    "t0": 373.0,
+    "t1": 386.0,
+    "text": "WHY DRIVE SO FAR?",
+    "sub": "Science, not records",
+    "say": "But this was never about breaking records. Perseverance is a geologist on wheels, hunting for signs of ancient life."
+   },
+   {
+    "t0": 386.5,
+    "t1": 399.0,
+    "text": "ANCIENT HYDROTHERMAL SYSTEMS",
+    "sub": "Hot-water chemistry on early Mars",
+    "say": "On this drive, it was exploring traces of ancient hydrothermal systems, places where hot water once flowed through rock."
+   },
+   {
+    "t0": 399.5,
+    "t1": 412.0,
+    "text": "LAC DE CHARMES",
+    "sub": "A self-portrait on ancient terrain",
+    "say": "At a location called Lac de Charmes, it even captured a self-portrait against a sweeping backdrop of ancient Martian terrain."
+   },
+   {
+    "t0": 412.5,
+    "t1": 424.5,
+    "text": "STEER LESS. ROLL MORE.",
+    "sub": "Mark Maimone, NASA JPL",
+    "say": "Mark Maimone, from the robotics team, says the newer software teaches the rover to steer less and roll more."
+   },
+   {
+    "t0": 426.0,
+    "t1": 438.0,
+    "text": "FAR FROM DONE",
+    "sub": "The team thinks it could more than double its distance",
+    "say": "And this record is far from the end. The mission team thinks Perseverance could eventually more than double the distance it has already driven."
+   },
+   {
+    "t0": 438.5,
+    "t1": 451.0,
+    "text": "MORE RECORDS AHEAD",
+    "sub": "",
+    "say": "With every mobility system working, NASA expects the rover to keep adding to this record for many years to come."
+   },
+   {
+    "t0": 451.5,
+    "t1": 461.5,
+    "text": "THREE DECADES OF ROVERS",
+    "sub": "The milestone coincides with 30 years of NASA rovers on Mars",
+    "say": "The milestone also arrives as NASA marks three decades of rover operations on Mars."
+   },
+   {
+    "t0": 462.5,
+    "t1": 473.5,
+    "text": "WHAT SHOULD WE EXPLORE NEXT?",
+    "sub": "Comment below",
+    "say": "That's the story of a robot that out-drove every machine before it. What should we explore next? Tell us in the comments."
+   },
+   {
+    "t0": 473.8,
+    "t1": 479.6,
+    "text": "SUBSCRIBE  |  TECHNICAL TALK INDIA",
+    "sub": "",
+    "say": "Subscribe to Technical Talk India, and see you in the next one."
+   }
+  ]
+ },
+ "shorts": {
+  "duration": 58,
+  "segments": [
+   {
+    "s0": 0,
+    "s1": 9,
+    "m0": 3
+   },
+   {
+    "s0": 9,
+    "s1": 21,
+    "m0": 118
+   },
+   {
+    "s0": 21,
+    "s1": 33,
+    "m0": 168
+   },
+   {
+    "s0": 33,
+    "s1": 46,
+    "m0": 318
+   },
+   {
+    "s0": 46,
+    "s1": 58,
+    "m0": 466
+   }
+  ],
+  "captions": [
+   {
+    "t0": 0.4,
+    "t1": 8.6,
+    "text": "28.10 MILES",
+    "sub": "NEW OFF-WORLD DRIVING RECORD",
+    "say": "One robot just drove farther than any vehicle in history on another world."
+   },
+   {
+    "t0": 9.4,
+    "t1": 14.6,
+    "text": "OPPORTUNITY: 28.06 MI",
+    "sub": "The old record",
+    "say": "Opportunity held the record at twenty-eight point oh six miles."
+   },
+   {
+    "t0": 15.0,
+    "t1": 20.8,
+    "text": "PERSEVERANCE: 28.10 MI",
+    "sub": "October 11, 2026",
+    "say": "Then Perseverance hit twenty-eight point one zero."
+   },
+   {
+    "t0": 21.4,
+    "t1": 32.6,
+    "text": "SELF-DRIVING ON MARS",
+    "sub": "600,000 points per glance",
+    "say": "It drives itself. Each glance maps six hundred thousand points, so over ninety percent of its distance was autonomous."
+   },
+   {
+    "t0": 33.4,
+    "t1": 45.6,
+    "text": "THE LEADERBOARD",
+    "sub": "Beat the old record by about 60 meters",
+    "say": "That beats Opportunity's old record by about sixty meters, in roughly a third of the time."
+   },
+   {
+    "t0": 46.4,
+    "t1": 52.4,
+    "text": "WOULD YOU TRUST A ROBOT DRIVER?",
+    "sub": "Comment below",
+    "say": "Would you trust a robot driver on Mars?"
+   },
+   {
+    "t0": 52.6,
+    "t1": 57.6,
+    "text": "FOLLOW FOR MORE SPACE",
+    "sub": "Technical Talk India",
+    "say": "Follow Technical Talk India for more space stories."
+   }
+  ]
+ },
+ "chapters": [
+  [
+   "0:00",
+   "Hook: 28.10 miles"
+  ],
+  [
+   "0:28",
+   "The old champion: Opportunity"
+  ],
+  [
+   "1:02",
+   "The challenger lands"
+  ],
+  [
+   "1:40",
+   "Record day, sol 2,006"
+  ],
+  [
+   "2:35",
+   "The secret: AutoNav"
+  ],
+  [
+   "3:35",
+   "Beyond the plan"
+  ],
+  [
+   "4:18",
+   "The route"
+  ],
+  [
+   "5:12",
+   "The off-world leaderboard"
+  ],
+  [
+   "6:12",
+   "Why it drives: the science"
+  ],
+  [
+   "7:05",
+   "Far from done"
+  ],
+  [
+   "7:42",
+   "What's next"
+  ]
+ ]
+}

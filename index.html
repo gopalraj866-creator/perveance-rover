@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Perseverance Record</title>
+<style>
+  :root { --u: 1px; --accent: #ff6a2b; --cyan: #5ee6ff; }
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #stage { position: relative; overflow: hidden; background: #000; color: #fff;
+    font-family: Inter, 'Segoe UI', Roboto, 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif; }
+  #gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .ov { position: absolute; pointer-events: none; }
+  #vig { inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 52%, rgba(0,0,0,.55) 100%); }
+  #grain { inset: -10%; opacity: .07; mix-blend-mode: overlay; }
+  #brand { left: calc(var(--u)*46); top: calc(var(--u)*38); font-size: calc(var(--u)*22); font-weight: 800; letter-spacing: calc(var(--u)*5);
+    opacity: .85; text-shadow: 0 calc(var(--u)*2) calc(var(--u)*8) rgba(0,0,0,.7); display: flex; align-items: center; gap: calc(var(--u)*12); }
+  #brand i { display: inline-block; width: calc(var(--u)*12); height: calc(var(--u)*12); background: var(--accent); border-radius: 50%; }
+
+  #cap { left: calc(var(--u)*90); bottom: calc(var(--u)*104); max-width: 66%; }
+  #cap .main { font-size: calc(var(--u)*66); font-weight: 900; line-height: 1.02; letter-spacing: calc(var(--u)*1); text-transform: uppercase;
+    padding-left: calc(var(--u)*22); border-left: calc(var(--u)*9) solid var(--accent); text-shadow: 0 calc(var(--u)*3) calc(var(--u)*18) rgba(0,0,0,.85); }
+  #cap .sub { margin-top: calc(var(--u)*12); font-size: calc(var(--u)*29); font-weight: 600; opacity: .92; padding-left: calc(var(--u)*31);
+    text-shadow: 0 calc(var(--u)*2) calc(var(--u)*10) rgba(0,0,0,.9); }
+  #capbg { left: 0; right: 0; bottom: 0; height: 36%; background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,0)); }
+
+  #odo { right: calc(var(--u)*46); top: calc(var(--u)*34); text-align: right; font-weight: 800; text-shadow: 0 calc(var(--u)*2) calc(var(--u)*8) rgba(0,0,0,.8);
+    background: rgba(8,10,16,.52); border: calc(var(--u)*2) solid rgba(255,255,255,.18); border-radius: calc(var(--u)*14); padding: calc(var(--u)*12) calc(var(--u)*22); }
+  #odo .l { font-size: calc(var(--u)*16); letter-spacing: calc(var(--u)*4); opacity: .75; }
+  #odo .v { font-size: calc(var(--u)*50); letter-spacing: calc(var(--u)*1); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  #odo .v small { font-size: calc(var(--u)*24); opacity: .8; margin-left: calc(var(--u)*6); }
+  #odo .k { font-size: calc(var(--u)*20); opacity: .85; font-weight: 600; }
+
+  #chapter { left: calc(var(--u)*90); top: 38%; }
+  #chapter .n { font-size: calc(var(--u)*24); letter-spacing: calc(var(--u)*10); color: var(--accent); font-weight: 800; }
+  #chapter .t { font-size: calc(var(--u)*76); font-weight: 900; letter-spacing: calc(var(--u)*2); margin-top: calc(var(--u)*6); text-shadow: 0 calc(var(--u)*4) calc(var(--u)*20) rgba(0,0,0,.9); }
+  #chapter .bar { height: calc(var(--u)*5); background: var(--accent); margin-top: calc(var(--u)*14); width: 0; }
+
+  #banner { left: 0; right: 0; top: 24%; text-align: center; }
+  #banner .a { font-size: calc(var(--u)*132); font-weight: 900; letter-spacing: calc(var(--u)*6); text-shadow: 0 calc(var(--u)*6) calc(var(--u)*30) rgba(0,0,0,.9), 0 0 calc(var(--u)*50) rgba(255,106,43,.7); }
+  #banner .b { font-size: calc(var(--u)*40); font-weight: 700; letter-spacing: calc(var(--u)*8); color: #ffd9c4; margin-top: calc(var(--u)*6); text-shadow: 0 calc(var(--u)*3) calc(var(--u)*12) rgba(0,0,0,.9); }
+  #flash { inset: 0; background: #fff; opacity: 0; }
+
+  .panel { background: rgba(8,10,16,.62); border: calc(var(--u)*2) solid rgba(255,255,255,.18); border-radius: calc(var(--u)*16); padding: calc(var(--u)*22) calc(var(--u)*28); }
+  #bars { left: calc(var(--u)*90); top: calc(var(--u)*150); width: 56%; }
+  #bars h3, #nav h3, #plan h3 { margin: 0 0 calc(var(--u)*14); font-size: calc(var(--u)*20); letter-spacing: calc(var(--u)*6); opacity: .8; font-weight: 800; }
+  .row { display: flex; align-items: center; margin: calc(var(--u)*12) 0; }
+  .row .nm { width: 34%; font-size: calc(var(--u)*25); font-weight: 800; white-space: nowrap; }
+  .row .tr { flex: 1; height: calc(var(--u)*30); background: rgba(255,255,255,.08); border-radius: calc(var(--u)*8); overflow: hidden; }
+  .row .fl { height: 100%; width: 0; border-radius: calc(var(--u)*8); background: linear-gradient(90deg, #7a8699, #b9c4d6); }
+  .row.hi .fl { background: linear-gradient(90deg, #ff6a2b, #ffb067); box-shadow: 0 0 calc(var(--u)*20) rgba(255,106,43,.7); }
+  .row .vl { width: 22%; text-align: right; font-size: calc(var(--u)*24); font-weight: 800; font-variant-numeric: tabular-nums; padding-left: calc(var(--u)*12); }
+
+  #nav { left: calc(var(--u)*46); top: calc(var(--u)*110); width: 34%; }
+  #nav .big { font-size: calc(var(--u)*54); font-weight: 900; color: var(--cyan); line-height: 1; font-variant-numeric: tabular-nums; }
+  #nav .cap { font-size: calc(var(--u)*20); opacity: .8; margin: calc(var(--u)*4) 0 calc(var(--u)*14); }
+  #plan { right: calc(var(--u)*60); top: calc(var(--u)*130); width: 40%; }
+  #labels .lb { position: absolute; transform: translate(-50%, -100%); font-weight: 800; font-size: calc(var(--u)*22); letter-spacing: calc(var(--u)*3);
+    background: rgba(8,10,16,.68); padding: calc(var(--u)*6) calc(var(--u)*14); border-radius: calc(var(--u)*8); border: calc(var(--u)*2) solid var(--cyan); white-space: nowrap; }
+  #labels .lb:after { content: ''; position: absolute; left: 50%; top: 100%; width: calc(var(--u)*2); height: calc(var(--u)*26); background: var(--cyan); }
+  #fade { inset: 0; background: #000; opacity: 1; }
+  #endcards { inset: 0; }
+  #endcards .box { position: absolute; border: calc(var(--u)*3) dashed rgba(255,255,255,.55); border-radius: calc(var(--u)*14); background: rgba(255,255,255,.05);
+    font-size: calc(var(--u)*22); letter-spacing: calc(var(--u)*5); font-weight: 800; display: flex; align-items: center; justify-content: center; opacity: .85; }
+  #thumb { inset: 0; display: none; }
+  #thumb .big { position: absolute; left: calc(var(--u)*70); top: calc(var(--u)*90); font-size: calc(var(--u)*250); font-weight: 900; line-height: .92; letter-spacing: calc(var(--u)*-4);
+    text-shadow: 0 calc(var(--u)*8) calc(var(--u)*30) rgba(0,0,0,.9); }
+  #thumb .big span { color: var(--accent); }
+  #thumb .sm { position: absolute; left: calc(var(--u)*76); bottom: calc(var(--u)*80); font-size: calc(var(--u)*62); font-weight: 900; background: var(--accent); color: #fff; padding: calc(var(--u)*8) calc(var(--u)*26); border-radius: calc(var(--u)*10); letter-spacing: calc(var(--u)*3); }
+
+  /* portrait (Shorts) layout */
+  .port #brand { left: calc(var(--u)*50); top: calc(var(--u)*120); }
+  .port #cap { left: calc(var(--u)*50); right: calc(var(--u)*50); bottom: calc(var(--u)*430); max-width: none; text-align: left; }
+  .port #cap .main { font-size: calc(var(--u)*84); }
+  .port #cap .sub { font-size: calc(var(--u)*36); }
+  .port #odo { right: calc(var(--u)*40); top: calc(var(--u)*190); }
+  .port #bars { left: calc(var(--u)*40); right: calc(var(--u)*40); width: auto; top: calc(var(--u)*330); }
+  .port .row .nm { width: 38%; font-size: calc(var(--u)*30); }
+  .port .row .vl { font-size: calc(var(--u)*28); width: 25%; }
+  .port #nav { left: calc(var(--u)*40); right: calc(var(--u)*40); width: auto; top: calc(var(--u)*330); }
+  .port #nav .big { font-size: calc(var(--u)*92); }
+  .port #plan { display: none; }
+  .port #banner { top: 20%; }
+  .port #banner .a { font-size: calc(var(--u)*118); }
+  .port #chapter { left: calc(var(--u)*50); top: 30%; }
+  .port #chapter .t { font-size: calc(var(--u)*80); }
+  .port #endcards { display: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl"></canvas>
+  <div id="vig" class="ov"></div>
+  <div id="capbg" class="ov"></div>
+  <canvas id="grain" class="ov" width="256" height="256"></canvas>
+  <div id="brand" class="ov"><i></i>TECHNICAL TALK INDIA</div>
+  <div id="odo" class="ov"><div class="l">ODOMETER</div><div class="v"><span id="odoMi">28.00</span><small>mi</small></div><div class="k"><span id="odoKm">45.00</span> km &nbsp;|&nbsp; SOL 2,006</div></div>
+  <div id="nav" class="ov panel"><h3>AUTONAV</h3><div class="big" id="navPts">0</div><div class="cap">measurement points per glance</div>
+    <div class="row"><div class="nm" style="width:46%">Perseverance</div><div class="tr"><div class="fl" id="navP" style="background:linear-gradient(90deg,#17c3a3,#5ee6ff)"></div></div><div class="vl" id="navPv">0%</div></div>
+    <div class="row"><div class="nm" style="width:46%">Opportunity</div><div class="tr"><div class="fl" id="navO"></div></div><div class="vl" id="navOv">0%</div></div>
+    <div class="cap" style="margin:6px 0 0">share of distance driven autonomously</div></div>
+  <div id="plan" class="ov panel"><h3>PLANNED vs ACTUAL</h3>
+    <div class="row"><div class="nm" style="width:30%">Plan</div><div class="tr"><div class="fl" id="planP"></div></div><div class="vl" id="planPv">0</div></div>
+    <div class="row hi"><div class="nm" style="width:30%">Actual</div><div class="tr"><div class="fl" id="planA"></div></div><div class="vl" id="planAv">0</div></div>
+  </div>
+  <div id="bars" class="ov panel"><h3>FARTHEST DISTANCE DRIVEN ON ANOTHER WORLD</h3><div id="barRows"></div></div>
+  <div id="labels" class="ov" style="inset:0"></div>
+  <div id="chapter" class="ov"><div class="n"></div><div class="t"></div><div class="bar"></div></div>
+  <div id="cap" class="ov"><div class="main"></div><div class="sub"></div></div>
+  <div id="banner" class="ov"><div class="a">NEW RECORD</div><div class="b">FARTHEST DRIVE ON ANOTHER WORLD</div></div>
+  <div id="endcards" class="ov"></div>
+  <div id="thumb" class="ov"><div class="big">28.10<br><span>MILES</span></div><div class="sm">NEW OFF-WORLD RECORD</div></div>
+  <div id="flash" class="ov"></div>
+  <div id="fade" class="ov"></div>
+</div>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
