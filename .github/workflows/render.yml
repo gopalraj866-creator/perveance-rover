@@ -1,0 +1,124 @@
+name: Render Perseverance video
+
+on:
+  workflow_dispatch:
+    inputs:
+      formats:
+        description: "Which outputs to render"
+        type: choice
+        default: all
+        options: [all, 1080p, 4k, shorts]
+      narration:
+        description: "Add AI voice-over (Microsoft Edge neural voice, free)"
+        type: boolean
+        default: true
+      voice:
+        description: "Edge TTS voice"
+        type: string
+        default: en-IN-PrabhatNeural
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+      formats: ${{ steps.m.outputs.formats }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - id: m
+        run: |
+          J=$(node scripts/plan_matrix.mjs "${{ inputs.formats }}")
+          echo "matrix=$(echo "$J" | node -pe 'JSON.stringify({include: JSON.parse(require("fs").readFileSync(0,"utf8")).include})')" >> "$GITHUB_OUTPUT"
+          echo "formats=$(echo "$J" | node -pe 'JSON.stringify(JSON.parse(require("fs").readFileSync(0,"utf8")).formats)')" >> "$GITHUB_OUTPUT"
+
+  audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install numpy edge-tts
+      - name: Narration (best effort)
+        if: ${{ inputs.narration }}
+        continue-on-error: true
+        env: { VOICE: "${{ inputs.voice }}" }
+        run: |
+          python scripts/narrate.py --mode main --out out/nar
+          python scripts/narrate.py --mode shorts --out out/nar
+      - name: Score + mix
+        run: |
+          mkdir -p out
+          for m in main shorts; do
+            if [ -f out/nar/narration_$m.json ] && [ "$(python -c "import json;print(len(json.load(open('out/nar/narration_$m.json'))['items']))")" -gt 0 ]; then
+              python scripts/make_audio.py --mode $m --out out/audio_$m.wav --narration out/nar/narration_$m.json
+            else
+              python scripts/make_audio.py --mode $m --out out/audio_$m.wav
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with: { name: audio, path: out/audio_*.wav, retention-days: 7 }
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Dependencies
+        run: |
+          npm install --no-audit --no-fund
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation fonts-dejavu-core ffmpeg
+          which google-chrome || which chromium-browser || true
+      - name: Render ${{ matrix.format }} chunk ${{ matrix.idx }} (${{ matrix.start }}s - ${{ matrix.end }}s)
+        env: { CHROME_PATH: /usr/bin/google-chrome }
+        run: node render.mjs --format ${{ matrix.format }} --start ${{ matrix.start }} --end ${{ matrix.end }} --workers 2 --out out/chunk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.format }}-${{ matrix.idx }}
+          path: out/chunk/video.mp4
+          retention-days: 3
+
+  thumbnail:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          npm install --no-audit --no-fund
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation fonts-dejavu-core
+      - run: CHROME_PATH=/usr/bin/google-chrome node render.mjs --thumbnail --out out/thumbnail.jpg
+      - uses: actions/upload-artifact@v4
+        with: { name: thumbnail, path: out/thumbnail.jpg }
+
+  assemble:
+    needs: [plan, audio, render]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        format: ${{ fromJSON(needs.plan.outputs.formats) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: "chunk-${{ matrix.format }}-*", path: chunks }
+      - uses: actions/download-artifact@v4
+        with: { name: audio, path: audio }
+      - name: Build final MP4
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg || true
+          A=audio/audio_main.wav; [ "${{ matrix.format }}" = "shorts" ] && A=audio/audio_shorts.wav
+          mkdir -p final
+          bash scripts/assemble.sh ${{ matrix.format }} chunks "$A" final/perseverance_record_${{ matrix.format }}.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: perseverance_record_${{ matrix.format }}
+          path: final/*.mp4
+          retention-days: 14
